@@ -8,7 +8,7 @@ WORKDIR /app
 COPY holamundo.py .
 
 # Exponemos el puerto 8000 (el mismo que usa el script)
-EXPOSE 8000
+EXPOSE 3618
 
 # Comando para ejecutar el servidor
 CMD ["python", "holamundo.py"]
