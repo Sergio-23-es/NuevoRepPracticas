@@ -4,7 +4,7 @@ from datetime import date
 timeline = [{"fecha": date(26, 10, 2025), "evento": "Inicio del Proyecto"},
     {"fecha": date(27, 10, 2025), "evento": "Creación del Repositorio"},
     {"fecha": date(28, 10, 2025), "evento": "Creación de holamundo.py"},
-    {"fecha": date(29, 10. 2025), "evento": "Pull request"},
+    {"fecha": date(29, 10, 2025), "evento": "Pull request"},
     {"fecha": date(4, 11, 2025),  "evento": "Creación de dockerfile"},
     {"fecha": date(5, 11, 2025), "evento": "Creación del Time Line"}]
    
