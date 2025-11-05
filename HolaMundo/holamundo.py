@@ -19,5 +19,3 @@ if __name__ == "__main__":
     with HTTPServer((host, port), HolaMundoHandler) as server:
         print(f"Servidor corriendo en http://{host}:{port}")
         server.serve_forever()
-
-

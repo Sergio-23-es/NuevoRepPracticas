@@ -1,0 +1,14 @@
+# Imagen base con Python
+FROM python:3.11-slim
+
+# Directorio de trabajo dentro del contenedor
+WORKDIR /app
+
+# Copiamos el archivo Python
+COPY holamundo.py .
+
+# Exponemos el puerto 8000 (el mismo que usa el script)
+EXPOSE 8000
+
+# Comando para ejecutar el servidor
+CMD ["python", "holamundo.py"]
