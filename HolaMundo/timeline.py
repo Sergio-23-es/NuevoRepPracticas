@@ -1,12 +1,12 @@
 from datetime import date
 
 # Lista de eventos del timeline
-timeline = [{"fecha": date(10, 26, 2025), "evento": "Inicio del Proyecto"},
-    {"fecha": date(10, 27, 2025), "evento": "Creación del Repositorio"},
-    {"fecha": date(10, 28, 2025), "evento": "Creación de holamundo.py"},
-    {"fecha": date(10, 29, 2025), "evento": "Pull request"},
-    {"fecha": date(11, 4, 2025),  "evento": "Creación de dockerfile"},
-    {"fecha": date(11, 5, 2025), "evento": "Creación del Time Line"}]
+timeline = [{"fecha": date(2025, 10, 26), "evento": "Inicio del Proyecto"},
+    {"fecha": date(2025, 10, 27), "evento": "Creación del Repositorio"},
+    {"fecha": date(2025, 10, 28), "evento": "Creación de holamundo.py"},
+    {"fecha": date(2025, 10, 29), "evento": "Pull request"},
+    {"fecha": date(2025, 11, 4),  "evento": "Creación de dockerfile"},
+    {"fecha": date(2025, 11, 5), "evento": "Creación del Time Line"}]
    
 
 # Generar timeline en formato Markdown
