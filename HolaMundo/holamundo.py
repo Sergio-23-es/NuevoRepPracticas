@@ -2,7 +2,7 @@ from http.server import SimpleHTTPRequestHandler, HTTPServer
 
 # Configurar dirección y puerto
 host = "localhost"
-port = 4918
+port = 8000
 
 # Crear una clase que maneje las peticiones HTTP
 class HolaMundoHandler(SimpleHTTPRequestHandler):
