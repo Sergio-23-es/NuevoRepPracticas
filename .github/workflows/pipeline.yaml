@@ -1,0 +1,49 @@
+name: Pipeline Ubuntu con Tag
+on:
+  push:
+    branches:
+      - main
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+
+      - name: Instalar dependencias
+        run: |
+          set -e
+          if [ -f package.json ]; then
+            echo "Proyecto Node.js detectado"
+            npm ci
+          else
+            echo "No hay package.json, se omite instalación"
+          fi
+
+      - name: Ejecutar pruebas (si existen)
+        run: |
+          set -e
+          if [ -f package.json ]; then
+            echo "Ejecutando pruebas"
+            npm test
+          else
+            echo "No hay pruebas que ejecutar"
+          fi
+
+      - name: Crear y publicar tag automático basado en fecha
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="v$(date +'%Y.%m.%d-%H%M')"
+          echo "Creando tag $TAG"
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git tag -a "$TAG" -m "Auto-tag $TAG"
+          git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}" "$TAG"
