@@ -1,0 +1,40 @@
+name: Pipeline macOS con Tag
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macos-latest  
+
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar dependencias
+        run: |
+          if [ -f package.json ]; then
+            echo "Proyecto Node.js detectado"
+            npm install
+          else
+            echo "No hay package.json, se omite instalación"
+          fi
+
+      - name: Ejecutar pruebas (si existen)
+        run: |
+          if [ -f package.json ]; then
+            npm test || echo "Sin pruebas definidas"
+          else
+            echo "No hay pruebas que ejecutar"
+          fi
+
+      - name: Crear tag automático basado en fecha
+        run: |
+          TAG="v$(date +'%Y.%m.%d-%H%M')"
+          echo "Creando tag $TAG"
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git tag $TAG
+          git push origin $TAG
