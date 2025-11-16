@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest  # 🔹 El runner será un entorno macOS
+    runs-on: macos-latest  
 
     steps:
       - name: Clonar el repositorio
